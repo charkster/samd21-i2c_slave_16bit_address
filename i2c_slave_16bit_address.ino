@@ -26,7 +26,7 @@ void receiveEvent(int bytes)
 {
   address_upper = Wire.read() & 0x3F; // read first  byte to determine address[11:8]
   address_lower = Wire.read();        // read second byte to determine address[7:0]
-  address = address_upper << 8 + address_lower;
+  address = (address_upper << 8) + address_lower;
   while (Wire.available())
   {
     data = Wire.read();
